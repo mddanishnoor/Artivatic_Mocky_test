@@ -13,7 +13,7 @@ Widget itemLayout(Rows row) {
           ),
     ),
     child: Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         row.imageHref != null
             ? Container(
@@ -36,7 +36,9 @@ Widget itemLayout(Rows row) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 8.0, top: 8),
+                padding: const EdgeInsets.only(
+                  left: 8.0,
+                ),
                 child: Text(row.title ?? "N/A",
                     style: const TextStyle(
                       fontSize: 16,
