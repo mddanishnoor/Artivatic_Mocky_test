@@ -1,6 +1,8 @@
 
 import 'package:artivatic_mocky/list_screen.dart';
+import 'package:artivatic_mocky/list_screen_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const Artivatic());
@@ -11,11 +13,13 @@ class Artivatic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ListenableProvider(
+      create: (context) => ListProvider(),
+      child: MaterialApp(
         home: Scaffold(
           body: ListScreen(),
         ),
-      
+      ),
     );
   }
 }
