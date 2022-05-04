@@ -1,4 +1,6 @@
+import 'package:artivatic_mocky/models/mocky_model.dart';
 import 'package:artivatic_mocky/providers/list_screen_provider.dart';
+import 'package:artivatic_mocky/utils/widget/itemLayout.dart';
 import 'package:artivatic_mocky/utils/widget/stateful_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -84,75 +86,7 @@ class ListScreen extends StatelessWidget {
                                         ?.toLowerCase()
                                         .contains(provider!.searchKey) ??
                                     false)
-                                ? Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      padding: const EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                        color: Colors.grey.shade50,
-                                        border: Border.all(
-                                            color: Colors.black, width: 1.0),
-                                        borderRadius: const BorderRadius.all(
-                                            Radius.circular(
-                                                10.0) //                 <--- border radius here
-                                            ),
-                                      ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          provider!.listData?.rows?[index]
-                                                      .imageHref !=
-                                                  null
-                                              ? Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Image.network(
-                                                    provider!
-                                                        .listData!
-                                                        .rows![index]
-                                                        .imageHref!,
-                                                    scale: 3.5,
-                                                    errorBuilder: (context,
-                                                            error,
-                                                            stackTrace) =>
-                                                        const Icon(Icons
-                                                            .hide_image_sharp),
-                                                  ),
-                                                )
-                                              : Container(),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(8.0),
-                                                child: Text(
-                                                    "${provider!.listData?.rows?[index].title}",
-                                                    style: const TextStyle(
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                    )),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(8.0),
-                                                child: Container(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 5),
-                                                  child: Text(
-                                                      "${provider!.listData?.rows?[index].description}"),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  )
+                                ? itemLayout(provider!.listData!.rows![index])
                                 : Container(),
                           )
                         : const Text("No Data"),
