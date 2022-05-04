@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:artivatic_mocky/mocky_model.dart';
-import 'package:artivatic_mocky/response_api.dart';
+import 'package:artivatic_mocky/models/mocky_model.dart';
+import 'package:artivatic_mocky/utils/network/response_api.dart';
 import 'package:http/http.dart' as http;
 
 class ApiProvider {

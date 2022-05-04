@@ -1,4 +1,4 @@
-import 'package:artivatic_mocky/list_screen_provider.dart';
+import 'package:artivatic_mocky/providers/list_screen_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
