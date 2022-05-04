@@ -89,7 +89,20 @@ class ListScreen extends StatelessWidget {
                                 ? itemLayout(provider!.listData!.rows![index])
                                 : Container(),
                           )
-                        : const Text("No Data"),
+                        : Center(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.error,
+                                  color: Colors.grey.shade600,
+                                  size: 100,
+                                ),
+                                const Text("No Data Found"),
+                              ],
+                            ),
+                          ),
                   ),
                 ),
               ],
