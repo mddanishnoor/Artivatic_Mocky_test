@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 class ListProvider extends ChangeNotifier {
   Mocky? listData;
   String searchKey = '';
+  bool isLoading = false;
   bool isSearchActive = false;
 
   updateSearchActive(bool val) {
@@ -13,6 +14,14 @@ class ListProvider extends ChangeNotifier {
       searchKey = '';
     }
     isSearchActive = val;
+    notifyListeners();
+  }
+
+  refreshListdata() async {
+    isLoading = true;
+    notifyListeners();
+    await getListData();
+    isLoading = false;
     notifyListeners();
   }
 

@@ -1,4 +1,3 @@
-
 import 'package:artivatic_mocky/providers/list_screen_provider.dart';
 import 'package:artivatic_mocky/utils/widget/stateful_wrapper.dart';
 import 'package:flutter/material.dart';
@@ -26,10 +25,18 @@ class ListScreen extends StatelessWidget {
           )
         ],
       ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => provider!.getListData(),
-          child: const Icon(Icons.refresh),
-        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => provider!.refreshListdata(),
+        child: provider!.isLoading
+            ? const Padding(
+                padding: EdgeInsets.all(18.0),
+                child: CircularProgressIndicator(
+                  strokeWidth: 0.8,
+                  color: Colors.white,
+                ),
+              )
+            : const Icon(Icons.refresh),
+      ),
       backgroundColor: Colors.blueGrey.shade100,
       body: StatefulWrapper(
         onInit: () => provider!.getListData(),
