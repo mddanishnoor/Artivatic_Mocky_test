@@ -14,6 +14,10 @@ class ListScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(provider!.listData?.title ?? ""),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => provider!.getListData(),
+        child: const Icon(Icons.refresh),
+      ),
       body: Container(
         child: (provider?.listData?.rows?.length ?? 0) > 0
             ? ListView.builder(
